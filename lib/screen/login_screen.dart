@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:walkwise/core/constants/color_constants.dart';
+import 'package:walkwise/core/utils/asset_provider.dart';
 import 'package:walkwise/core/utils/util.dart';
 import 'package:walkwise/screen/forget_password.dart';
 import 'package:walkwise/screen/homepage.dart';
@@ -43,6 +44,10 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // const LoginHeader(),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Image.asset(Assets.images.Logo),
+                ),
                 Container(
                   margin: EdgeInsets.symmetric(
                     horizontal: kHorizontalMargin,

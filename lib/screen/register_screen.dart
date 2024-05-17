@@ -30,6 +30,10 @@ class _SignupScreenState extends State<SignupScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Image.asset(Assets.images.Logo),
+                ),
                 // Container(
                 //   margin: EdgeInsets.symmetric(
                 //       horizontal: kHorizontalMargin, vertical: kVerticalMargin),
