@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       borderSide: BorderSide.none,
                     ),
                     filled: true,
-                    fillColor: Colors.grey[200],
+                    fillColor: Colors.amber[200],
                   ),
                 ),
               ),
