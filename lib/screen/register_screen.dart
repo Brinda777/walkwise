@@ -76,7 +76,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         fontSize: 24,
                         fontFamily: 'Times',
                         fontWeight: FontWeight.w400,
-                        textColor: Colors.black,
+                        textColor: Colors.grey,
                       ),
                       ResponsiveText(
                         "Create you acoount and experiecnethe app.",
