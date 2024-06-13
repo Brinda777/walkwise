@@ -6,6 +6,7 @@ import 'package:walkwise/core/constants/color_constants.dart';
 import 'package:walkwise/core/utils/asset_provider.dart';
 import 'package:walkwise/core/utils/util.dart';
 import 'package:walkwise/features/authentication/presentation/view/register_view.dart';
+import 'package:walkwise/features/authentication/presentation/view_model/auth_view_model.dart';
 import 'package:walkwise/screen/forget_password.dart';
 import 'package:walkwise/widgets/responsive_text.dart';
 
@@ -193,16 +194,18 @@ class _LoginViewState extends ConsumerState<LoginView> {
                         fontWeight: FontWeight.w400,
                         textColor: Color(0xFFFCFCFC),
                       ),
-                      onPressed: () {
+                      onPressed: () async{
                         if (_formKey.currentState?.validate() ?? false) {
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => MyHomePage(),
-                          //   ),
-                          // );
+                          await ref
+                              .read(authViewModelProvider.notifier)
+                              .login(
+                                _emailController.text,
+                                _passwordController.text,
+                              );
+
                         }
                       },
+
                     ),
                   ),
                 ),
@@ -221,7 +224,11 @@ class _LoginViewState extends ConsumerState<LoginView> {
                       SizedBox(width: width * 0.02),
                       GestureDetector(
                         onTap: () {
-                          NavigateRoute.pushRoute(const RegisterView());
+                          ref
+                              .read(authViewModelProvider.notifier)
+                              .openRegisterView();
+
+                         // NavigateRoute.pushRoute(const RegisterView());
                         },
                         child: const ResponsiveText(
                           "Register",

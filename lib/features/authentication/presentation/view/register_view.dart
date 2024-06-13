@@ -4,7 +4,9 @@ import 'package:walkwise/app/navigator/navigator.dart';
 import 'package:walkwise/core/constants/color_constants.dart';
 import 'package:walkwise/core/utils/asset_provider.dart';
 import 'package:walkwise/core/utils/util.dart';
+import 'package:walkwise/features/authentication/domain/entity/auth_entity.dart';
 import 'package:walkwise/features/authentication/presentation/view/login_view.dart';
+import 'package:walkwise/features/authentication/presentation/view_model/auth_view_model.dart';
 import 'package:walkwise/widgets/responsive_text.dart';
 
 class RegisterView extends ConsumerStatefulWidget {
@@ -16,6 +18,12 @@ class RegisterView extends ConsumerStatefulWidget {
 
 class _RegisterViewState extends ConsumerState<RegisterView> {
   final _formKey = GlobalKey<FormState>();
+
+  final _fullNameController = TextEditingController(text: '');
+  final _phoneController = TextEditingController(text: '');
+  final _emailController = TextEditingController(text: '');
+  final _passwordController = TextEditingController(text: '');
+
   bool _isPasswordHidden = true;
   bool _isCPasswordHidden = true;
   String? _password;
@@ -100,6 +108,7 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                         fontWeight: FontWeight.w400,
                       ),
                       TextFormField(
+                        controller: _fullNameController,
                         decoration: InputDecoration(
                           hintText: "Test User 01",
                           filled: true,
@@ -123,6 +132,7 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                         fontWeight: FontWeight.w400,
                       ),
                       TextFormField(
+                        controller: _phoneController,
                         decoration: InputDecoration(
                           hintText: "9800000000",
                           filled: true,
@@ -149,6 +159,7 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                         fontWeight: FontWeight.w400,
                       ),
                       TextFormField(
+                        controller: _emailController,
                         decoration: InputDecoration(
                           hintText: "someone@gmail.com",
                           filled: true,
@@ -175,6 +186,7 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                         fontWeight: FontWeight.w400,
                       ),
                       TextFormField(
+                        controller: _passwordController,
                         decoration: InputDecoration(
                           hintText: "",
                           filled: true,
@@ -201,43 +213,6 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                           return null;
                         },
                       ),
-                      SizedBox(
-                        height: kHorizontalMargin,
-                      ),
-                      const ResponsiveText(
-                        'Confirm Password',
-                        fontSize: 18,
-                        fontWeight: FontWeight.w400,
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          hintText: "",
-                          filled: true,
-                          fillColor: Color(0xFFFFFFF),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8)),
-                          suffixIcon: IconButton(
-                            icon: Icon(_isCPasswordHidden
-                                ? Icons.visibility
-                                : Icons.visibility_off),
-                            onPressed: () {
-                              setState(() {
-                                _isCPasswordHidden = !_isCPasswordHidden;
-                              });
-                            },
-                          ),
-                        ),
-                        obscureText: _isCPasswordHidden,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please confirm your password';
-                          }
-                          if (value != _password) {
-                            return 'Passwords do not match';
-                          }
-                          return null;
-                        },
-                      ),
                       Center(
                         child: Container(
                           margin:
@@ -260,7 +235,16 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
                                 // Perform registration logic
-                                Navigator.pop(context);
+                                var user = AuthEntity(
+                                  fullName: _fullNameController.text,
+                                  phone: _phoneController.text,
+                                  email: _emailController.text,
+                                  password: _passwordController.text,
+                                );
+
+                                ref
+                                    .read(authViewModelProvider.notifier)
+                                    .register(user);
                               }
                             },
                           ),
