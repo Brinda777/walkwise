@@ -89,7 +89,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
                         controller: _emailController,
                         decoration: InputDecoration(
                           hintText: "someone@gmail.com",
-                          filled: true,
+                          // filled: true,
                           fillColor: Color(0xFFFFFFF),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
@@ -194,18 +194,14 @@ class _LoginViewState extends ConsumerState<LoginView> {
                         fontWeight: FontWeight.w400,
                         textColor: Color(0xFFFCFCFC),
                       ),
-                      onPressed: () async{
+                      onPressed: () async {
                         if (_formKey.currentState?.validate() ?? false) {
-                          await ref
-                              .read(authViewModelProvider.notifier)
-                              .login(
+                          await ref.read(authViewModelProvider.notifier).login(
                                 _emailController.text,
                                 _passwordController.text,
                               );
-
                         }
                       },
-
                     ),
                   ),
                 ),
@@ -228,7 +224,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
                               .read(authViewModelProvider.notifier)
                               .openRegisterView();
 
-                         // NavigateRoute.pushRoute(const RegisterView());
+                          // NavigateRoute.pushRoute(const RegisterView());
                         },
                         child: const ResponsiveText(
                           "Register",

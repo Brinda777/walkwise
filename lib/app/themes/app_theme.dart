@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:walkwise/app/constants/theme_constant.dart';
+
 class AppTheme {
   AppTheme._();
   static getApplicationTheme(bool isDark) {

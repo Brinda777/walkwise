@@ -43,35 +43,6 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                   padding: const EdgeInsets.all(16.0),
                   child: Image.asset(Assets.images.Logo),
                 ),
-                // Container(
-                //   margin: EdgeInsets.symmetric(
-                //       horizontal: kHorizontalMargin, vertical: kVerticalMargin),
-                //   child: Column(
-                //     children: [
-                //       Center(
-                //         child: Image.asset(
-                //           Assets.images.Logo,
-                //           height: height * 0.2,
-                //           width: height,
-                //         ),
-                //       ),
-                //       ResponsiveText(
-                //         "WalkWise",
-                //         fontSize: 32,
-                //         fontFamily: 'SF Pro Rounded',
-                //         fontWeight: FontWeight.w400,
-                //         textColor: Color(0xFF614E7E),
-                //       ),
-                //       ResponsiveText(
-                //         "",
-                //         fontSize: 20,
-                //         fontFamily: 'SF Pro',
-                //         fontWeight: FontWeight.w400,
-                //         textColor: Color(0xFF2F676A),
-                //       ),
-                //     ],
-                //   ),
-                // ),
                 Container(
                   margin: EdgeInsets.symmetric(
                     horizontal: kHorizontalMargin,
@@ -88,7 +59,7 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                         textColor: Colors.grey,
                       ),
                       ResponsiveText(
-                        "Create you acoount and experiecnethe app.",
+                        "Create your acoount",
                         fontSize: 12,
                         textColor: Color(0xFF454C53),
                         fontWeight: FontWeight.w400,
@@ -110,7 +81,7 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                       TextFormField(
                         controller: _fullNameController,
                         decoration: InputDecoration(
-                          hintText: "Test User 01",
+                          hintText: "Enter your name",
                           filled: true,
                           fillColor: Color(0xFFFFFFF),
                           border: OutlineInputBorder(
@@ -144,9 +115,7 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your phone number';
                           }
-                          if (!RegExp(r'^\d{10}$').hasMatch(value)) {
-                            return 'Please enter a valid 10-digit phone number';
-                          }
+
                           return null;
                         },
                       ),
@@ -171,9 +140,7 @@ class _RegisterViewState extends ConsumerState<RegisterView> {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your email';
                           }
-                          if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                            return 'Please enter a valid email address';
-                          }
+
                           return null;
                         },
                       ),

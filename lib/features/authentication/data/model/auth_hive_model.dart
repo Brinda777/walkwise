@@ -6,8 +6,8 @@ import 'package:walkwise/app/constants/hive_table_constant.dart';
 import 'package:walkwise/features/authentication/domain/entity/auth_entity.dart';
 
 part 'auth_hive_model.g.dart';
-                                                                 //dart run build_runner build -d
-                                                                 
+//dart run build_runner build -d
+
 final authHiveModelProvider = Provider(
   (ref) => AuthHiveModel.empty(),
 );
@@ -22,9 +22,9 @@ class AuthHiveModel {
 
   @HiveField(2)
   final String? phone;
-  
+
   @HiveField(3)
-  final String email ;
+  final String email;
 
   @HiveField(4)
   final String password;

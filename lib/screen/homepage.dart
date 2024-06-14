@@ -58,10 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Center(
-                  child: Image.asset(Assets.images.Banner,fit:BoxFit.fill)
-                    
-                  
-                ),
+                    child: Image.asset(Assets.images.Banner, fit: BoxFit.fill)),
               ),
               // Grid View of Shoes
               Padding(
