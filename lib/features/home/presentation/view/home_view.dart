@@ -1,15 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:walkwise/core/utils/asset_provider.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class HomeView extends ConsumerStatefulWidget {
+  const HomeView({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  ConsumerState<HomeView> createState() => _HomeViewState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomeViewState extends ConsumerState<HomeView> {
   final List<Map<String, String>> shoes = [
     {'name': 'Shoe 1', 'description': 'Description of Shoe 1'},
     {'name': 'Shoe 2', 'description': 'Description of Shoe 2'},

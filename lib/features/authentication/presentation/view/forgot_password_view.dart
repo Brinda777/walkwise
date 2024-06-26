@@ -3,8 +3,6 @@ import 'package:walkwise/core/constants/color_constants.dart';
 import 'package:walkwise/core/utils/util.dart';
 import 'package:walkwise/widgets/responsive_text.dart';
 
-
-
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});
 
@@ -13,7 +11,6 @@ class ForgetPassword extends StatefulWidget {
 }
 
 class _ForgetPasswordState extends State<ForgetPassword> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -7,7 +7,6 @@ import 'package:walkwise/core/utils/asset_provider.dart';
 import 'package:walkwise/core/utils/util.dart';
 import 'package:walkwise/features/authentication/presentation/view/register_view.dart';
 import 'package:walkwise/features/authentication/presentation/view_model/auth_view_model.dart';
-import 'package:walkwise/screen/forget_password.dart';
 import 'package:walkwise/widgets/responsive_text.dart';
 
 class LoginView extends ConsumerStatefulWidget {
@@ -64,7 +63,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
                         textColor: Colors.black,
                       ),
                       ResponsiveText(
-                        "Login to your account and make enhance you memory.",
+                        "Login to your account.",
                         fontSize: 12,
                         textColor: Color(0xFF454C53),
                         fontWeight: FontWeight.w400,
@@ -156,12 +155,12 @@ class _LoginViewState extends ConsumerState<LoginView> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ForgetPassword(),
-                            ),
-                          );
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (context) => ForgetPassword(),
+                          //   ),
+                          // );
                         },
                         child: const ResponsiveText(
                           "Forget Password?",
