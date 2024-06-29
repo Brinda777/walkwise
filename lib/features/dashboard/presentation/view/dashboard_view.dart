@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:walkwise/features/home/presentation/view/home_view.dart';
+import 'package:walkwise/features/home/presentation/view/internet_check_view.dart';
 
 class DashboardView extends ConsumerStatefulWidget {
   const DashboardView({super.key});
@@ -16,6 +17,7 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
     const HomeView(),
     const HomeView(),
     const HomeView(),
+   // const InternetCheckView(),
   ];
 
   @override
@@ -32,7 +34,9 @@ class _DashboardViewState extends ConsumerState<DashboardView> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home', ),
           BottomNavigationBarItem(icon: Icon(Icons.notes), label: 'Orders'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile')
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+         // BottomNavigationBarItem(icon: Icon(Icons.wifi), label: 'Internet')
+
         ],
       ),
     );
